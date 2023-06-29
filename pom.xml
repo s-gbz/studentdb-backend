@@ -11,7 +11,7 @@
     <groupId>de.neuefische</groupId>
     <artifactId>studentdb-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>studentdb-backend</name>
     <description>studentdb-backend</description>
     <properties>
@@ -56,6 +56,7 @@
     </dependencies>
 
     <build>
+        <finalName>studentdb-backend</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

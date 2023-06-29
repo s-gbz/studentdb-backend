@@ -4,6 +4,12 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
 
 ## Starten der Anwendung
 
+### Docker
+
+- Das Backend kann über [DockerHub](https://hub.docker.com/r/moinmarcell/studentdb-backend) bezogen werden
+
+### Ansonsten
+
 - Das Projekt forken und in IntelliJ öffnen
 - Sollte MongoDb lokal laufen, muss nichts weiter eingestellt werden
 - Sollte MongoDb nicht lokal laufen, muss in der Datei `application.properties` die Property `spring.data.mongodb.uri`
