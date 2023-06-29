@@ -25,14 +25,14 @@ public class StudentController {
     public List<StudentResponseDto> getAllStudents(
             @RequestParam(required = false) String firstName,
             @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) String course
+            @RequestParam(required = false) String courseOfStudies
     ) {
         if (firstName != null) {
             return studentService.getStudentsByFirstName(firstName);
         } else if (lastName != null) {
             return studentService.getStudentsByLastName(lastName);
-        } else if (course != null) {
-            return studentService.getStudentsByCourse(course);
+        } else if (courseOfStudies != null) {
+            return studentService.getStudentsByCourse(courseOfStudies);
         }
         return studentService.getAllStudents();
     }

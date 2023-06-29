@@ -20,8 +20,8 @@ public class StudentService {
                         .matriculationNumber(student.getMatriculationNumber())
                         .firstName(student.getFirstName())
                         .lastName(student.getLastName())
-                        .age(student.getAge())
-                        .course(student.getCourse())
+                        .email(student.getEmail())
+                        .courseOfStudies(student.getCourseOfStudies())
                         .build())
                 .toList();
     }
@@ -33,8 +33,8 @@ public class StudentService {
                         .matriculationNumber(student.getMatriculationNumber())
                         .firstName(student.getFirstName())
                         .lastName(student.getLastName())
-                        .age(student.getAge())
-                        .course(student.getCourse())
+                        .email(student.getEmail())
+                        .courseOfStudies(student.getCourseOfStudies())
                         .build())
                 .toList();
     }
@@ -46,21 +46,21 @@ public class StudentService {
                         .matriculationNumber(student.getMatriculationNumber())
                         .firstName(student.getFirstName())
                         .lastName(student.getLastName())
-                        .age(student.getAge())
-                        .course(student.getCourse())
+                        .email(student.getEmail())
+                        .courseOfStudies(student.getCourseOfStudies())
                         .build())
                 .toList();
     }
 
     public List<StudentResponseDto> getStudentsByCourse(String course) {
-        return studentRepository.findAllByCourseEqualsIgnoreCase(course)
+        return studentRepository.findAllByCourseOfStudiesEqualsIgnoreCase(course)
                 .stream()
                 .map(student -> StudentResponseDto.builder()
                         .matriculationNumber(student.getMatriculationNumber())
                         .firstName(student.getFirstName())
                         .lastName(student.getLastName())
-                        .age(student.getAge())
-                        .course(student.getCourse())
+                        .email(student.getEmail())
+                        .courseOfStudies(student.getCourseOfStudies())
                         .build())
                 .toList();
     }
@@ -74,8 +74,8 @@ public class StudentService {
                 .matriculationNumber(student.getMatriculationNumber())
                 .firstName(student.getFirstName())
                 .lastName(student.getLastName())
-                .age(student.getAge())
-                .course(student.getCourse())
+                .email(student.getEmail())
+                .courseOfStudies(student.getCourseOfStudies())
                 .build();
     }
 
@@ -88,8 +88,8 @@ public class StudentService {
                 .matriculationNumber(student.getMatriculationNumber())
                 .firstName(student.getFirstName())
                 .lastName(student.getLastName())
-                .age(student.getAge())
-                .course(student.getCourse())
+                .email(student.getEmail())
+                .courseOfStudies(student.getCourseOfStudies())
                 .build();
     }
 
@@ -98,8 +98,8 @@ public class StudentService {
                 .matriculationNumber(matriculationNumberService.generateMatriculationNumber())
                 .firstName(studentRequestDto.getFirstName())
                 .lastName(studentRequestDto.getLastName())
-                .age(studentRequestDto.getAge())
-                .course(studentRequestDto.getCourse())
+                .email(studentRequestDto.getEmail())
+                .courseOfStudies(studentRequestDto.getCourseOfStudies())
                 .build();
 
         Student savedStudent = studentRepository.save(student);
@@ -108,8 +108,8 @@ public class StudentService {
                 .matriculationNumber(savedStudent.getMatriculationNumber())
                 .firstName(savedStudent.getFirstName())
                 .lastName(savedStudent.getLastName())
-                .age(savedStudent.getAge())
-                .course(savedStudent.getCourse())
+                .email(savedStudent.getEmail())
+                .courseOfStudies(savedStudent.getCourseOfStudies())
                 .build();
     }
 
@@ -120,8 +120,8 @@ public class StudentService {
 
         student.setFirstName(updateStudentDto.getFirstName());
         student.setLastName(updateStudentDto.getLastName());
-        student.setAge(updateStudentDto.getAge());
-        student.setCourse(updateStudentDto.getCourse());
+        student.setEmail(updateStudentDto.getEmail());
+        student.setCourseOfStudies(updateStudentDto.getCourseOfStudies());
 
         Student savedStudent = studentRepository.save(student);
 
@@ -129,8 +129,8 @@ public class StudentService {
                 .matriculationNumber(savedStudent.getMatriculationNumber())
                 .firstName(savedStudent.getFirstName())
                 .lastName(savedStudent.getLastName())
-                .age(savedStudent.getAge())
-                .course(savedStudent.getCourse())
+                .email(savedStudent.getEmail())
+                .courseOfStudies(savedStudent.getCourseOfStudies())
                 .build();
     }
 

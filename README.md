@@ -16,68 +16,70 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
 
 ## Übersicht der Endpunkte
 
-- `GET /students` - Gibt alle Studenten zurück
+- `GET /api/students` - Gibt alle Studenten zurück
     - Query Parameter:
-        - `course` - Filtert die Studenten nach Studiengang
+        - `courseOfStudies` - Filtert die Studenten nach Studiengang
         - `firstName` - Filtert die Studenten nach Vornamen
         - `lastName` - Filtert die Studenten nach Nachnamen
     - Query Parameter können nicht kombiniert werden und sind optional
-    - `responseBody`:
-      ```json
-      [
-        {
-          "matriculationNumber": "MN-123456",
-          "firstName": "Max",
-          "lastName": "Mustermann",
-          "age": 21,
-          "course": "Medieninformatik"
-        },
-        {
-          "matriculationNumber": "MN-654321",
-          "firstName": "Erika",
-          "lastName": "Mustermann",
-          "age": 20,
-          "course": "Medieninformatik"
-        }
-      ]
-      ```
-- `POST /students` - Fügt einen neuen Studenten hinzu
-    - Request Body: `{"firstName": "Max", "lastName": "Mustermann", "age": 21, "course": "Medieninformatik"}`
+        - `responseBody`:
+            ```json
+            [
+                {
+                    "matriculationNumber": "MN-123456",
+                    "firstName": "Max",
+                    "lastName": "Mustermann",
+                    "email": "max@mustermann.de",
+                    "courseOfStudies": "Medieninformatik"
+                },
+                {
+                    "matriculationNumber": "MN-123457",
+                    "firstName": "Max",
+                    "lastName": "Mustermann",
+                    "email": "max@mustermann.de",
+                    "courseOfStudies": "Medieninformatik"
+                }
+            ]
+            ```
+- `POST /api/students` - Fügt einen neuen Studenten hinzu
+    - Request
+      Body: `{"firstName": "Max", "lastName": "Mustermann", "email": "max@mustermann.de", "courseOfStudies": "Medieninformatik"}`
     - Status Code: `201 Created`
-    - `responseBody`:
-        ```json
-        {
-        "matriculationNumber": "MN-123456",
-        "firstName": "Max",
-        "lastName": "Mustermann",
-        "age": 21,
-        "course": "Medieninformatik"
-        }
-        ```
+        - `responseBody`:
+            ```json
+            {
+                "matriculationNumber": "MN-123456",
+                "firstName": "Max",
+                "lastName": "Mustermann",
+                "email": "max@mustermann.de",
+                "courseOfStudies": "Medieninformatik"
+            }
+            ```
 - `DELETE /students/{matriculationNumber}` - Löscht einen Studenten anhand der Matrikelnummer
     - Status Code: `204 No Content`
 - `PUT /students/{matriculationNumber}` - Aktualisiert einen Studenten anhand der Matrikelnummer
-    - Request Body: `{"firstName": "Max", "lastName": "Mustermann", "age": 21, "course": "Medieninformatik"}`
+    - Request
+      Body: `{"firstName": "Max", "lastName": "Mustermann", "email": "max@mustermann.de", "courseOfStudies": "Medieninformatik"}`
     - Status Code: `200 OK`
-    - `responseBody`:
-        ```json
-        {
-        "matriculationNumber": "MN-123456",
-        "firstName": "Max",
-        "lastName": "Mustermann",
-        "age": 21,
-        "course": "Medieninformatik"
-        }
-        ```
+        - `responseBody`:
+            ```json
+            {
+                "matriculationNumber": "MN-123456",
+                "firstName": "Max",
+                "lastName": "Mustermann",
+                "email": "max@mustermann.de",
+                "courseOfStudies": "Medieninformatik"
+            }
+            ```
 - `GET /students/{matriculationNumber}` - Gibt einen Studenten anhand der Matrikelnummer zurück
     - `responseBody`:
         ```json
         {
-        "matriculationNumber": "MN-123456",
-        "firstName": "Max",
-        "lastName": "Mustermann",
-        "age": 21,
-        "course": "Medieninformatik"
+            "matriculationNumber": "MN-123456",
+            "firstName": "Max",
+            "lastName": "Mustermann",
+            "email": "max@mustermann.de",
+            "courseOfStudies": "Medieninformatik"
         }
         ```
 - `GET /students/search` - Gibt den ersten Studenten zurück, der den Suchparametern entspricht
@@ -89,15 +91,15 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
         - `responseBody`:
             ```json
               {
-                "matriculationNumber": "MN-123456",
-                "firstName": "Max",
-                "lastName": "Mustermann",
-                "age": 21,
-                "course": "Medieninformatik"
+                    "matriculationNumber": "MN-123456",
+                    "firstName": "Max",
+                    "lastName": "Mustermann",
+                    "email": "max@mustermann.de",
+                    "courseOfStudies": "Medieninformatik"
               }
             ```
 - Wenn ein einzelner Student nicht gefunden wird, wird ein `404 Not Found` zurückgegeben
 - `firstName` und `lastName` sind Pflichtfelder und müssen mindestens 2 Zeichen lang sein und dürfen nur aus Buchstaben
   bestehen
-- `age` ist ein Pflichtfeld und muss zwischen 1 und 99 liegen
-- `course` ist ein Pflichtfeld und darf nur Buchstaben und Zahlen enthalten
+- `email` ist ein Pflichtfeld und muss eine Valide E-Mail-Adresse sein
+- `courseOfStudies` ist ein Pflichtfeld und darf nur Buchstaben und Zahlen enthalten

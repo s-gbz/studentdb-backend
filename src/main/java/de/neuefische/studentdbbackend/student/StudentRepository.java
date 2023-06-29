@@ -17,7 +17,7 @@ public interface StudentRepository extends MongoRepository<Student, String> {
 
     List<Student> findAllByLastNameEqualsIgnoreCase(String lastName);
 
-    List<Student> findAllByCourseEqualsIgnoreCase(String course);
+    List<Student> findAllByCourseOfStudiesEqualsIgnoreCase(String course);
 
     Optional<Student> findByFirstNameAndLastName(String firstName, String lastName);
 

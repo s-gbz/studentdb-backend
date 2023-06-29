@@ -19,7 +19,7 @@ public class Student {
     private String matriculationNumber;
     private String firstName;
     private String lastName;
-    private Integer age;
-    private String course;
+    private String email;
+    private String courseOfStudies;
 
 }
