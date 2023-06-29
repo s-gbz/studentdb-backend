@@ -11,13 +11,7 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
 ### Ansonsten
 
 - Das Projekt forken und in IntelliJ öffnen
-- Sollte MongoDb lokal laufen, muss nichts weiter eingestellt werden
-- Sollte MongoDb nicht lokal laufen, muss in der Datei `application.properties` die Property `spring.data.mongodb.uri`
-  angepasst werden
-    - Hierzu kann z.B. ein kostenloser Account bei [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) erstellt werden
-    - Nach der Registrierung kann eine kostenlose Datenbank angelegt werden
-    - In der Datenbank muss ein User angelegt werden, der Lese- und Schreibrechte hat
-    - Die Verbindungs-URI kann dann in der Datei `application.properties` eingetragen werden
+- `MONGODB_URI` in der `application.properties` anpassen oder als Umgebungsvariable setzen
 - Die Anwendung kann dann gestartet werden
 
 ## Übersicht der Endpunkte
