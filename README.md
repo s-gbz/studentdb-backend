@@ -44,10 +44,31 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
 - `POST /students` - Fügt einen neuen Studenten hinzu
     - Request Body: `{"firstName": "Max", "lastName": "Mustermann", "age": 21, "course": "Medieninformatik"}`
     - Status Code: `201 Created`
+    - `responseBody`:
+        ```json
+        {
+        "matriculationNumber": "MN-123456",
+        "firstName": "Max",
+        "lastName": "Mustermann",
+        "age": 21,
+        "course": "Medieninformatik"
+        }
+        ```
 - `DELETE /students/{matriculationNumber}` - Löscht einen Studenten anhand der Matrikelnummer
     - Status Code: `204 No Content`
 - `PUT /students/{matriculationNumber}` - Aktualisiert einen Studenten anhand der Matrikelnummer
     - Request Body: `{"firstName": "Max", "lastName": "Mustermann", "age": 21, "course": "Medieninformatik"}`
+    - Status Code: `200 OK`
+    - `responseBody`:
+        ```json
+        {
+        "matriculationNumber": "MN-123456",
+        "firstName": "Max",
+        "lastName": "Mustermann",
+        "age": 21,
+        "course": "Medieninformatik"
+        }
+        ```
 - `GET /students/{matriculationNumber}` - Gibt einen Studenten anhand der Matrikelnummer zurück
     - `responseBody`:
         ```json
