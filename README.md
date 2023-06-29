@@ -55,9 +55,9 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
                 "courseOfStudies": "Medieninformatik"
             }
             ```
-- `DELETE /students/{matriculationNumber}` - Löscht einen Studenten anhand der Matrikelnummer
+- `DELETE /api/students/{matriculationNumber}` - Löscht einen Studenten anhand der Matrikelnummer
     - Status Code: `204 No Content`
-- `PUT /students/{matriculationNumber}` - Aktualisiert einen Studenten anhand der Matrikelnummer
+- `PUT /api/students/{matriculationNumber}` - Aktualisiert einen Studenten anhand der Matrikelnummer
     - Request
       Body: `{"firstName": "Max", "lastName": "Mustermann", "email": "max@mustermann.de", "courseOfStudies": "Medieninformatik"}`
     - Status Code: `200 OK`
@@ -71,7 +71,7 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
                 "courseOfStudies": "Medieninformatik"
             }
             ```
-- `GET /students/{matriculationNumber}` - Gibt einen Studenten anhand der Matrikelnummer zurück
+- `GET /api/students/{matriculationNumber}` - Gibt einen Studenten anhand der Matrikelnummer zurück
     - `responseBody`:
         ```json
         {
@@ -82,7 +82,7 @@ Dieses Projekt ist zur Bearbeitung der JavaFX-Aufgabe (HttpClient) erstellt word
             "courseOfStudies": "Medieninformatik"
         }
         ```
-- `GET /students/search` - Gibt den ersten Studenten zurück, der den Suchparametern entspricht
+- `GET /api/students/search` - Gibt den ersten Studenten zurück, der den Suchparametern entspricht
     - Query Parameter:
         - `firstName`
         - `lastName`
