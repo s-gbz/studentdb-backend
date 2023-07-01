@@ -13,13 +13,11 @@ import lombok.NoArgsConstructor;
 public class NewStudentDto {
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z]+", message = "First name must only contain letters")
     @NotBlank(message = "First name is required")
     @Size(min = 2, message = "First name must be at least 2 characters long")
     private String firstName;
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z]+", message = "Last name must only contain letters")
     @NotBlank(message = "Last name is required")
     @Size(min = 2, message = "Last name must be at least 2 characters long")
     private String lastName;
@@ -30,7 +28,6 @@ public class NewStudentDto {
     private String email;
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z0-9]+", message = "Course must only contain letters and numbers")
     @NotBlank(message = "Course is required")
     private String courseOfStudies;
 
