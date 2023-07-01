@@ -135,7 +135,10 @@ public class StudentService {
     }
 
     public void deleteStudent(String matriculationNumber) {
-        studentRepository.deleteByMatriculationNumber(matriculationNumber);
+        Student studentToDelete = studentRepository
+                .findByMatriculationNumber(matriculationNumber)
+                .orElseThrow(() -> new StudentNotFoundException("Student with matriculation number " + matriculationNumber + " not found"));
+        studentRepository.delete(studentToDelete);
     }
 
 }
