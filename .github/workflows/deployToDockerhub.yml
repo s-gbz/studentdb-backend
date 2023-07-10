@@ -20,7 +20,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with maven
-        run: mvn -B package --file backend/pom.xml
+        run: mvn -B package --file pom.xml
 
       - uses: actions/upload-artifact@v2
         with:
