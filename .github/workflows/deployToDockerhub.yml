@@ -60,7 +60,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           #Set hostname of your AWS EC2 instance
-          host: ec2-12-345-67-89.eu-central-1.compute.amazonaws.com
+          host: capstone-project.de
           #Set App Name ("myapp" - "tango")
           username: antimon
           password: ${{ secrets.SSH_PASSWORD }}
@@ -69,14 +69,14 @@ jobs:
           script: |
             docker stop antimon
             docker rm antimon
-            docker run --pull=always --name antimon --publish 80:8080 --restart always --detach sergejneuefische/deploy-to-aws-with-github-action:latest
+            docker run --pull=always --name antimon -e=MONGO_DB_URI=${{ secrets.MONGO_DB_URI }} --network capstones --ip 10.0.2.1 --restart always --detach sergejneuefische/deploy-to-aws-with-github-action:latest 
             sleep 15s
             docker logs antimon
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
           #Set URL of your AWS EC2 instance
-          url: http://ec2-12-345-67-89.eu-central-1.compute.amazonaws.com
+          url: http://antimon.capstone-project.de
           max-attempts: 3
           retry-delay: 5s
           retry-all: true
